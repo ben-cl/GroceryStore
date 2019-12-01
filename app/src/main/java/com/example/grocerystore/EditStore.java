@@ -15,6 +15,7 @@ public class EditStore extends AppCompatActivity {
 
     private EditText nameEditField;
     private Button editStore;
+    private Button backMenu;
 
 
     @Override
@@ -27,7 +28,7 @@ public class EditStore extends AppCompatActivity {
 
         nameEditField = findViewById(R.id.nameEditField);
         editStore = findViewById(R.id.editStore);
-
+        backMenu = findViewById(R.id.backMenuEditStore);
 
         //
         editStore.setOnClickListener(new View.OnClickListener(){
@@ -57,5 +58,18 @@ public class EditStore extends AppCompatActivity {
 
             }
         });
+
+        // Back button if does not want to edit any new store
+        backMenu.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                // Launch back menu
+                Intent intent = new Intent(EditStore.this, MainActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+
     }
 }

@@ -16,6 +16,8 @@ public class EditItem extends AppCompatActivity {
 
     private EditText nameEditField;
     private Button editItem;
+    private Button backMenu;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,7 @@ public class EditItem extends AppCompatActivity {
 
         nameEditField = findViewById(R.id.nameEditFieldItem);
         editItem = findViewById(R.id.editItem);
+        backMenu = findViewById(R.id.backMenuEditItem);
 
 
         //
@@ -53,6 +56,22 @@ public class EditItem extends AppCompatActivity {
                 Intent intentback = new Intent(EditItem.this, ItemList.class);
                 startActivity(intentback);
 
+
+            }
+        });
+
+        // Back button if does not want to add any new item
+        backMenu.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+
+                Intent intentSet = getIntent();
+                Store store = (Store)intentSet.getSerializableExtra("store");
+
+                // Launch back menu
+                Intent intent = new Intent(EditItem.this, ItemList.class);
+                intent.putExtra("store", store);
+                startActivity(intent);
 
             }
         });

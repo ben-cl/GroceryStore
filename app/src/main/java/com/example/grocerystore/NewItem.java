@@ -18,6 +18,7 @@ public class NewItem extends AppCompatActivity {
 
     private EditText nameField;
     private Button addItem;
+    private Button backMenu;
 
 
 
@@ -31,6 +32,7 @@ public class NewItem extends AppCompatActivity {
 
         nameField = findViewById(R.id.nameItemField);
         addItem = findViewById(R.id.addItem);
+        backMenu = findViewById(R.id.backMenuAddItem);
 
 
         //
@@ -64,6 +66,21 @@ public class NewItem extends AppCompatActivity {
                 intent.putExtra("store", store);
                 startActivity(intent);
 
+            }
+        });
+
+        // Back button if does not want to add any new item
+        backMenu.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+
+                Intent intentSet = getIntent();
+                Store store = (Store)intentSet.getSerializableExtra("store");
+
+                // Launch back menu
+                Intent intent = new Intent(NewItem.this, ItemList.class);
+                intent.putExtra("store", store);
+                startActivity(intent);
 
             }
         });

@@ -16,6 +16,7 @@ public class NewStore extends AppCompatActivity {
 
     private EditText nameField;
     private Button addStore;
+    private Button backMenu;
 
 
 
@@ -29,7 +30,9 @@ public class NewStore extends AppCompatActivity {
 
         nameField = findViewById(R.id.nameField);
         addStore = findViewById(R.id.addStore);
+        backMenu = findViewById(R.id.backMenuAddStore);
 
+        // backMenuAddStore
 
         //
         addStore.setOnClickListener(new View.OnClickListener(){
@@ -47,6 +50,17 @@ public class NewStore extends AppCompatActivity {
                 Intent intent = new Intent(NewStore.this, MainActivity.class);
                 startActivity(intent);
 
+
+            }
+        });
+
+        // Back button if does not want to add any new store
+        backMenu.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                // Launch back menu
+                Intent intent = new Intent(NewStore.this, MainActivity.class);
+                startActivity(intent);
 
             }
         });

@@ -18,6 +18,7 @@ import com.example.grocerystore.ItemList;
 import com.example.grocerystore.R;
 import com.example.grocerystore.data.DatabaseHandler;
 import com.example.grocerystore.model.Item;
+import com.example.grocerystore.model.Store;
 
 import java.util.List;
 
@@ -66,6 +67,9 @@ public class RecyclerViewAdapterItem extends RecyclerView.Adapter<RecyclerViewAd
 
         final Item item = itemList.get(position);
 
+        //trick but to test to make sure
+        final Store store = db.getStore(item.getStoreId());
+
         holder.name.setText(item.getName());
 
         holder.removeButton.setOnClickListener(new View.OnClickListener(){
@@ -101,6 +105,9 @@ public class RecyclerViewAdapterItem extends RecyclerView.Adapter<RecyclerViewAd
                 Intent intent = new Intent(context, EditItem.class);
                 // pass store
                 intent.putExtra("item", item);
+
+                //
+                intent.putExtra("store", store);
 
                 context.startActivity(intent);
 

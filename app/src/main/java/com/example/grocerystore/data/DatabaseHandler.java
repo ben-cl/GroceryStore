@@ -119,6 +119,73 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return storeList;
     }
 
+    public Store getStore(int id){
+        List<Store> storeList = new ArrayList<>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        //String selectAll = "SELECT * FROM "+ TABLE_NAME_STORE;
+       // Cursor cursor = db.rawQuery(selectAll, null);
+
+
+        Cursor cursor = db.query(Util.TABLE_NAME_STORE, new String[]{Util.KEY_ID, Util.KEY_NAME},
+
+                Util.KEY_ID+ "=?", new String[]{String.valueOf(id)}, null, null, null);
+
+
+
+        if(cursor != null){
+            cursor.moveToFirst();
+            Store store = new Store();
+
+            store.setId(Integer.parseInt(cursor.getString(0)));
+            store.setName(cursor.getString(1));
+
+            return store;
+        }else{
+            return null;
+        }
+//
+//        if (cursor.moveToFirst()) {
+//
+//            do{
+//                Store store = new Store();
+//
+//                store.setId(Integer.parseInt(cursor.getString(0)));
+//                store.setName(cursor.getString(1));
+//                //store.setPhoneNumber(cursor.getString(2));
+//
+//                storeList.add(store);
+//            }while(cursor.moveToNext());
+//        }
+//        db.close();
+//        return storeList;
+    }
+
+
+//    public Contact getContact(int id){
+//
+//        SQLiteDatabase db = this.getReadableDatabase();
+//
+//        Cursor cursor = db.query(Util.TABLE_NAME, new String[]{Util.KEY_ID, Util.KEY_NAME, KEY_PHONE_NUMBER},
+//
+//                Util.KEY_ID+ "=?", new String[]{String.valueOf(id)}, null, null, null);
+//
+//        if(cursor != null){
+//            cursor.moveToFirst();
+//            Contact contact = new Contact();
+//
+//            contact.setId(Integer.parseInt(cursor.getString(0)));
+//            contact.setName(cursor.getString(1));
+//            contact.setPhoneNumber(cursor.getString(2));
+//
+//            return contact;
+//        }else{
+//            return null;
+//        }
+//
+//    }
+
     //Delete Method
     public void deleteContact(Store store)
     {
@@ -160,6 +227,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close();
         return itemList;
     }
+
+
+
 
     public void addItem(Item item){
         SQLiteDatabase db = this.getWritableDatabase();
