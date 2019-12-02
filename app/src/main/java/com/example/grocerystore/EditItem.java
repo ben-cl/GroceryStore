@@ -30,16 +30,18 @@ public class EditItem extends AppCompatActivity {
         editItem = findViewById(R.id.editItem);
         backMenu = findViewById(R.id.backMenuEditItem);
 
+        Intent intent = getIntent();
 
+        final Item item = (Item)intent.getSerializableExtra("item");
+
+        final Store store = (Store)intent.getSerializableExtra("store");
+        nameEditField.setText(item.getName());
         //
         editItem.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view){
 
-                Intent intent = getIntent();
-
-                Item item = (Item)intent.getSerializableExtra("item");
 
 
                 // Edit Store
@@ -54,6 +56,7 @@ public class EditItem extends AppCompatActivity {
 
                 // Launch back menu
                 Intent intentback = new Intent(EditItem.this, ItemList.class);
+                intentback.putExtra("store", store);
                 startActivity(intentback);
 
 

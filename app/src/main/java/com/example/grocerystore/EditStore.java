@@ -30,15 +30,18 @@ public class EditStore extends AppCompatActivity {
         editStore = findViewById(R.id.editStore);
         backMenu = findViewById(R.id.backMenuEditStore);
 
+
+        Intent intent = getIntent();
+        final Store store = (Store)intent.getSerializableExtra("store");
+
+        nameEditField.setText(store.getName());
+
+
         //
         editStore.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view){
-
-                Intent intent = getIntent();
-
-                Store store = (Store)intent.getSerializableExtra("store");
 
 
                 // Edit Store
