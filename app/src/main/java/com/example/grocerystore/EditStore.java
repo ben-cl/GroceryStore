@@ -47,18 +47,22 @@ public class EditStore extends AppCompatActivity {
                 // Edit Store
                 String name = nameEditField.getText().toString();
 
-                store.setName(name);
+                if(name.isEmpty()){
+                    openDialog();
+                }
+                else {
+
+                    store.setName(name);
 
 
-                //todo
-                db.editStore(store);
+                    //todo
+                    db.editStore(store);
 
 
-                // Launch back menu
-                Intent intentback = new Intent(EditStore.this, MainActivity.class);
-                startActivity(intentback);
-
-
+                    // Launch back menu
+                    Intent intentback = new Intent(EditStore.this, MainActivity.class);
+                    startActivity(intentback);
+                }
             }
         });
 
@@ -75,4 +79,10 @@ public class EditStore extends AppCompatActivity {
 
 
     }
+
+    public void openDialog(){
+        NullDialog nullDialog = new NullDialog();
+        nullDialog.show(getSupportFragmentManager(), "null dialog");
+    }
+
 }

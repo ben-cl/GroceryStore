@@ -41,30 +41,38 @@ public class NewItem extends AppCompatActivity {
             @Override
             public void onClick(View view){
 
-                // Add Item
-
-                //TODO add foreign storeId intent bundle?
-
-                Intent intentSet = getIntent();
-
-                //int storeId = Integer.valueOf(intentSet.getStringExtra("storeId"));
-
-                Store store = (Store)intentSet.getSerializableExtra("store");
-
-
-                Log.d("test", "onClick: adding item fk"+store.getId());
-
-                //testing
 
                 String name = nameField.getText().toString();
 
-                db.addItem(new Item(store.getId(),name));
+                if(name.isEmpty()){
+                    openDialog();
+                }
+                else {
+
+                    // Add Item
+
+                    //TODO add foreign storeId intent bundle?
+
+                    Intent intentSet = getIntent();
+
+                    //int storeId = Integer.valueOf(intentSet.getStringExtra("storeId"));
+
+                    Store store = (Store) intentSet.getSerializableExtra("store");
 
 
-                // Launch back menu
-                Intent intent = new Intent(NewItem.this, ItemList.class);
-                intent.putExtra("store", store);
-                startActivity(intent);
+                    Log.d("test", "onClick: adding item fk" + store.getId());
+
+                    //testing
+
+
+                    db.addItem(new Item(store.getId(), name));
+
+
+                    // Launch back menu
+                    Intent intent = new Intent(NewItem.this, ItemList.class);
+                    intent.putExtra("store", store);
+                    startActivity(intent);
+                }
 
             }
         });
@@ -86,5 +94,9 @@ public class NewItem extends AppCompatActivity {
         });
 
 
+    }
+    public void openDialog(){
+        NullDialog nullDialog = new NullDialog();
+        nullDialog.show(getSupportFragmentManager(), "null dialog");
     }
 }

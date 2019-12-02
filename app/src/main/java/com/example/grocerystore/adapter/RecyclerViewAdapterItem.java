@@ -90,6 +90,7 @@ public class RecyclerViewAdapterItem extends RecyclerView.Adapter<RecyclerViewAd
                 // Launch back menu
 
                 Intent intent = new Intent(context, ItemList.class);
+                intent.putExtra("store", store);
                 context.startActivity(intent);
 
 

@@ -42,23 +42,24 @@ public class EditItem extends AppCompatActivity {
             @Override
             public void onClick(View view){
 
-
-
                 // Edit Store
                 String name = nameEditField.getText().toString();
 
-                item.setName(name);
+                if(name.isEmpty()){
 
+                    openDialog();
+                }
+                else {
 
-                //todo
-                db.editItem(item);
+                    item.setName(name);
+                    //todo
+                    db.editItem(item);
 
-
-                // Launch back menu
-                Intent intentback = new Intent(EditItem.this, ItemList.class);
-                intentback.putExtra("store", store);
-                startActivity(intentback);
-
+                    // Launch back menu
+                    Intent intentback = new Intent(EditItem.this, ItemList.class);
+                    intentback.putExtra("store", store);
+                    startActivity(intentback);
+                }
 
             }
         });
@@ -78,5 +79,10 @@ public class EditItem extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void openDialog(){
+        NullDialog nullDialog = new NullDialog();
+        nullDialog.show(getSupportFragmentManager(), "null dialog");
     }
 }

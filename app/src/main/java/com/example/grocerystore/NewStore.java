@@ -43,14 +43,20 @@ public class NewStore extends AppCompatActivity {
                 // Add Store
                 String name = nameField.getText().toString();
 
-                db.addStore(new Store(name));
+                // Check if not null
+                if(name.isEmpty()){
+                    openDialog();
+
+                }
+                else {
+                    db.addStore(new Store(name));
 
 
-                // Launch back menu
-                Intent intent = new Intent(NewStore.this, MainActivity.class);
-                startActivity(intent);
+                    // Launch back menu
+                    Intent intent = new Intent(NewStore.this, MainActivity.class);
+                    startActivity(intent);
 
-
+                }
             }
         });
 
@@ -58,6 +64,8 @@ public class NewStore extends AppCompatActivity {
         backMenu.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+
+
                 // Launch back menu
                 Intent intent = new Intent(NewStore.this, MainActivity.class);
                 startActivity(intent);
@@ -66,5 +74,12 @@ public class NewStore extends AppCompatActivity {
         });
 
 
+
+
+    }
+
+    public void openDialog(){
+        NullDialog nullDialog = new NullDialog();
+        nullDialog.show(getSupportFragmentManager(), "null dialog");
     }
 }
