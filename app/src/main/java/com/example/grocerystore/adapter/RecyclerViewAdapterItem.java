@@ -85,8 +85,6 @@ public class RecyclerViewAdapterItem extends RecyclerView.Adapter<RecyclerViewAd
                 db.deleteItem(item);
 
 
-
-
                 // Launch back menu
 
                 Intent intent = new Intent(context, ItemList.class);
@@ -142,7 +140,6 @@ public class RecyclerViewAdapterItem extends RecyclerView.Adapter<RecyclerViewAd
             removeButton = itemView.findViewById(R.id.removeItemButton);
             editButton = itemView.findViewById(R.id.editItemButton);
 
-
         }
 
 
@@ -158,8 +155,7 @@ public class RecyclerViewAdapterItem extends RecyclerView.Adapter<RecyclerViewAd
 //            //intent.putExtra("phone", contact.getPhoneNumber());
 //
 //            // pass id instead?
-//
-//
+
 //            context.startActivity(intent);
         }
 
