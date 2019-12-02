@@ -6,17 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".NewStore">
 
-    <TextView
-        android:id="@+id/textView3"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add New Store"
-        android:textSize="30sp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.185" />
+        app:layout_constraintVertical_bias="0.223">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bolditalic"
+            android:text="New"
+            android:textColor="#FF9800"
+            android:textSize="35dp"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:fontFamily="@font/roboto_bolditalic"
+            android:text="Store"
+
+            android:textSize="35dp"
+
+            />
+
+    </LinearLayout>
 
     <EditText
         android:id="@+id/nameField"
@@ -38,10 +60,10 @@
         android:text="Add store"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.448"
+        app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.74" />
+        app:layout_constraintVertical_bias="0.758" />
 
     <Button
         android:id="@+id/backMenuAddStore"

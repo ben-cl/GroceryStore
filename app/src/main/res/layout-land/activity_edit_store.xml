@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewItem">
+    tools:context=".EditStore">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -12,16 +12,16 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.443"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.223">
+        app:layout_constraintVertical_bias="0.214">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_bolditalic"
-            android:text="New"
+            android:text="Edit"
             android:textColor="#FF9800"
             android:textSize="35dp"
 
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
             android:fontFamily="@font/roboto_bolditalic"
-            android:text="Item"
+            android:text="Store"
 
             android:textSize="35dp"
 
@@ -41,7 +41,7 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/nameItemField"
+        android:id="@+id/nameEditField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -50,30 +50,29 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.444" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/addItem"
+        android:id="@+id/editStore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add item"
+        android:text="Update store"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.467"
+        app:layout_constraintHorizontal_bias="0.632"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.736" />
+        app:layout_constraintVertical_bias="0.842" />
 
     <Button
-        android:id="@+id/backMenuAddItem"
+        android:id="@+id/backMenuEditStore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.467"
+        app:layout_constraintHorizontal_bias="0.402"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.89" />
+        app:layout_constraintVertical_bias="0.842" />
 </androidx.constraintlayout.widget.ConstraintLayout>
