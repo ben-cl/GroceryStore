@@ -1,5 +1,6 @@
 package com.example.grocerystore;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -7,8 +8,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.grocerystore.adapter.RecyclerViewAdapter;
 import com.example.grocerystore.data.DatabaseHandler;
@@ -76,5 +81,28 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.add_menu, menu);
 
+
+        return true;
+    }
+
+    // When option menu selected launch new store form +
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if(item.getItemId() == R.id.addMenu){
+            Intent intent = new Intent( MainActivity.this, NewStore.class);
+            startActivity(intent);
+
+            Toast.makeText(this, "selecte", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+
+
+        return super.onOptionsItemSelected(item);
+    }
 }
