@@ -146,17 +146,8 @@ public class RecyclerViewAdapterItem extends RecyclerView.Adapter<RecyclerViewAd
         @Override
         public void onClick(View v) {
 
-//            int position = getAdapterPosition();
-//            Store store = itemList.get(position);
-//            Log.d("Clicked", "onClick: "+position);
-//
-//            Intent intent = new Intent(context, ItemList.class);
-//            intent.putExtra("name",store.getName());
-//            //intent.putExtra("phone", contact.getPhoneNumber());
-//
-//            // pass id instead?
 
-//            context.startActivity(intent);
+            // nothing required here
         }
 
 
